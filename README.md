@@ -25,3 +25,8 @@ Built using python `3.7`.
 
   - handle the env var better, but still keep it secret
   - look at getting the function to schedule the next run at the next sunset time, then it only needs to run once per day
+
+## Timezones
+
+5pm in Adelaide winter time is 7:30am GMT.
+9pm in Adelaide summer time is 10:30am GMT.
