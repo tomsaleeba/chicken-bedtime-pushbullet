@@ -1,5 +1,4 @@
 import os
-import json
 from datetime import datetime as dt
 from dateutil import tz
 import ephem
@@ -10,8 +9,18 @@ TO_ZONE = tz.gettz('Australia/Adelaide')
 ADELAIDE_LAT = '-34.9786554'
 ADELAIDE_LONG = '138.5487406'
 
+# FIXME change CRON schedule to run every 5 minutes between times that sunset can happen
+
 
 def is_closest_hour(hour, minute):
+    # pass sunset as datetime obj
+    # create now as datetime obj (with tz)
+    # define schedule regularity (5 minutes)
+    # create datetime obj for next run
+    # check if now and next are either side of sunset, bail if not
+    # check if delta between now and sunset is less than next and sunset
+    # if now, then push, return
+    # check now and previous time
     now = dt.now(tz=TO_ZONE)
     if now.hour < hour:
         return False

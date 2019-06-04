@@ -1,6 +1,9 @@
 #!/bin/bash
-# BROKEN! This almost works. It gets something you can upload but the
-# ephem._libastro module doesn't load in Lambda
+
+echo "BROKEN! This almost works. It gets something you can upload but the
+ ephem._libastro module doesn't load in Lambda. Refusing to run!"
+exit 0
+
 set euo -pipefail
 cd `dirname "$0"`
 
