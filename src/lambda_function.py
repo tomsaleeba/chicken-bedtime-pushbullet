@@ -10,9 +10,11 @@ ADELAIDE_LAT = '-34.9786554'
 ADELAIDE_LONG = '138.5487406'
 
 # FIXME change CRON schedule to run every 5 minutes between times that sunset can happen
+# FIXME case input to int
+run_frequency = os.getenv('RUN_FREQUENCY', default=5)
 
 
-def is_closest_hour(hour, minute):
+def is_closest_time(now_datetime, sunset_datetime):
     # pass sunset as datetime obj
     # create now as datetime obj (with tz)
     # define schedule regularity (5 minutes)
@@ -21,7 +23,6 @@ def is_closest_hour(hour, minute):
     # check if delta between now and sunset is less than next and sunset
     # if now, then push, return
     # check now and previous time
-    now = dt.now(tz=TO_ZONE)
     if now.hour < hour:
         return False
     if now.hour == hour:
